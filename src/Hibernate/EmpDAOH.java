@@ -47,12 +47,7 @@ public class EmpDAOH implements IDAO <Empleado> {
 
     @Override
     public Empleado mostrarById(Long id) {
-        Empleado e = new Empleado();
-        e.setId(id);
-        session.delete(id);
-        transaction.commit();
-        session.close();
-        return e;
+        return null;
         
     }
     @Override

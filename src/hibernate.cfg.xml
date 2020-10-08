@@ -47,5 +47,6 @@ Contributor(s):
     <property name="hibernate.connection.username">postgres</property>
     <property name="hibernate.connection.password">password</property>
     <mapping class="Crud.Empleado"/>
+    <mapping class="Crud.Departamento"/>
   </session-factory>
 </hibernate-configuration>

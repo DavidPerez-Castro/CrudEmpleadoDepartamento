@@ -1,19 +1,21 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Hibernate;
 
 import Crud.Empleado;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import javax.persistence.Query;
 import org.hibernate.Session;
-import org.hibernate.Transaction;
+import org.hibernate.SessionFactory;
+
 
 /**
  *
  * @author gabrielhs
  */
 public class test {
+    
     
     public static void main(String[] args) {
         
@@ -25,10 +27,9 @@ public class test {
         empleado.setTelefono("6666");
         //dao.ingresar(empleado);
         //dao.actualizar(empleado);
-        dao.eliminar(Long.valueOf(117));
+        //dao.eliminar(Long.valueOf(117));
         
-            
-            
+       
        
     }
 }
