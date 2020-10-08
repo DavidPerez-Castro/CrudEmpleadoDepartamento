@@ -175,8 +175,8 @@ public class EmpleadosGUI extends javax.swing.JInternalFrame {
                     .addComponent(txtClave)
                     .addComponent(txtDireccion)
                     .addComponent(txtTelefono))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 339, Short.MAX_VALUE)
                 .addGap(32, 32, 32))
         );
         jPanel1Layout.setVerticalGroup(
@@ -203,7 +203,7 @@ public class EmpleadosGUI extends javax.swing.JInternalFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel4)
                             .addComponent(txtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(77, Short.MAX_VALUE))
+                .addContainerGap(35, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
@@ -245,7 +245,10 @@ public class EmpleadosGUI extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btoMostrarActionPerformed
 
     private void btoBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btoBuscarActionPerformed
-       
+      empleado = new Empleado();
+      empleado =dao.mostrarById(Long.parseLong(txtClave.getText()));
+        mostrar.setText("Id: " + empleado.getId() + " Nombre: " + empleado.getNombre()
+        + "Direccion:" + empleado.getDireccion() + "Telefono: " + empleado.getTelefono());
     }//GEN-LAST:event_btoBuscarActionPerformed
 
 

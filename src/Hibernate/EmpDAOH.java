@@ -1,6 +1,7 @@
 
 package Hibernate;
 
+import Crud.Departamento;
 import Crud.Empleado;
 import Crud.IDAO;
 import java.util.List;
@@ -14,7 +15,7 @@ import org.hibernate.Transaction;
 public class EmpDAOH implements IDAO <Empleado> {
     Session session= HibernateUtil.getSessionFactory().openSession();  
     Transaction transaction=session.beginTransaction();
-       
+    private Empleado e;
 
     @Override
     public boolean ingresar(Empleado pojo) {
@@ -36,7 +37,7 @@ public class EmpDAOH implements IDAO <Empleado> {
 
     @Override
     public boolean eliminar(Long id) {
-        Empleado e = new Empleado();
+        e = new Empleado();
         e.setId(id);
         session.delete(e);
         transaction.commit();
@@ -47,7 +48,11 @@ public class EmpDAOH implements IDAO <Empleado> {
 
     @Override
     public Empleado mostrarById(Long id) {
-        return null;
+        e = new Empleado();
+        e=(Empleado)session.get(Empleado.class, Long.valueOf(id));
+        session.getTransaction().commit();
+        session.close();
+        return e;
         
     }
     @Override

@@ -89,7 +89,7 @@ public class DepartamentosGUI extends javax.swing.JInternalFrame {
         });
         jToolBar2.add(btoGuardar);
 
-        btoActualizar.setText("actua");
+        btoActualizar.setText("actualizar");
         btoActualizar.setToolTipText("Nuevo");
         btoActualizar.setFocusable(false);
         btoActualizar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -101,7 +101,7 @@ public class DepartamentosGUI extends javax.swing.JInternalFrame {
         });
         jToolBar2.add(btoActualizar);
 
-        btoEliminar.setText("eli");
+        btoEliminar.setText("eliminar");
         btoEliminar.setToolTipText("Eliminar");
         btoEliminar.setFocusable(false);
         btoEliminar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -124,7 +124,7 @@ public class DepartamentosGUI extends javax.swing.JInternalFrame {
         });
         jToolBar2.add(btoBuscar);
 
-        btoMostrar.setText("mos");
+        btoMostrar.setText("mostrar");
         btoMostrar.setToolTipText("Modificar");
         btoMostrar.setFocusable(false);
         btoMostrar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -218,7 +218,9 @@ public class DepartamentosGUI extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btoMostrarActionPerformed
 
     private void btoBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btoBuscarActionPerformed
-        // TODO add your handling code here:
+        departamento = new Departamento();
+        departamento =dao.mostrarById(Long.parseLong(txtClave.getText()));
+        mostrar.setText("Id: " + departamento.getId() + " Nombre: " + departamento.getNombre());
     }//GEN-LAST:event_btoBuscarActionPerformed
 
 

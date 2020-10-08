@@ -112,22 +112,7 @@ public class DepartamentoDAO implements IDAO<Departamento> {
      */
     @Override
     public List<Departamento> mostrarAll() {
-        String insert = "SELECT * FROM departamentos ORDER BY id";
-        List<Departamento> listaPer = new ArrayList<>();
-        try {
-            sentencia=con.getInstance().getConnection().prepareStatement(insert);
-            rs = sentencia.executeQuery();
-            while (rs.next()) {
-                Departamento p = new Departamento();
-                p.setId(rs.getLong(1));
-                p.setNombre(rs.getString(2));
-
-                listaPer.add(p);
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(DepartamentoDAO.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return listaPer;
+     return null;
     }
 
 }

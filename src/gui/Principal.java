@@ -3,10 +3,7 @@ package gui;
 
 import java.awt.Component;
 
-/**
- *
- * @author jahaziel1999
- */
+
 public class Principal extends javax.swing.JFrame {
 
   
@@ -56,7 +53,7 @@ public class Principal extends javax.swing.JFrame {
         });
         jMenu2.add(departamentos);
 
-        Empleado.setText("Persona");
+        Empleado.setText("Empleado");
         Empleado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 EmpleadoActionPerformed(evt);
