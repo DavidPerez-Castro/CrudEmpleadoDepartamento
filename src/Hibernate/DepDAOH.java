@@ -15,44 +15,82 @@ import org.hibernate.Transaction;
  * @author gabrielhs
  */
 public class DepDAOH implements IDAO <Departamento>{
+    private Session session;
     private Departamento departamento;
-    Session session= HibernateUtil.getSessionFactory().openSession();  
-    Transaction transaction=session.beginTransaction();
 
     @Override
     public boolean ingresar(Departamento pojo) {
-        session.save(pojo);
-        transaction.commit();
-        session.close();
-        return false;
+        session= HibernateUtil.getSessionFactory().openSession();  
+        Transaction t = session.beginTransaction();
+        try {
+            session.save(pojo);
+            t.commit();
         
+        } catch (Exception ex) {
+            t.rollback();
+        }
+        
+        finally{
+            session.close();      
+                }
+        return false;
     }
 
     @Override
     public boolean actualizar(Departamento pojo) {
-        session.saveOrUpdate(pojo);
-        transaction.commit();
-        session.close();
+        session= HibernateUtil.getSessionFactory().openSession();  
+        Transaction t = session.beginTransaction();
+        try {
+            session.saveOrUpdate(pojo);
+            t.commit();
+        
+        } catch (Exception ex) {
+            t.rollback();
+        }
+        
+        finally{
+            session.close();      
+                }
         return false;
       
     }
 
     @Override
     public boolean eliminar(Long id) {
-        departamento = new Departamento();
-        departamento.setId(id);
-        session.delete(departamento);
-        transaction.commit();
-        session.close();
+        session= HibernateUtil.getSessionFactory().openSession();  
+        Transaction t = session.beginTransaction();
+        try {
+            departamento = new Departamento();
+            departamento.setId(id);
+            session.delete(departamento);
+            t.commit();
+        
+        } catch (Exception ex) {
+            t.rollback();
+        }
+        
+        finally{
+            session.close();      
+                }
         return false;
     }
 
     @Override
     public Departamento mostrarById(Long id) {
-        departamento = new Departamento();
-        departamento=(Departamento)session.get(Departamento.class, Long.valueOf(id));
-        session.getTransaction().commit();
-        session.close();
+        session= HibernateUtil.getSessionFactory().openSession();  
+        Transaction t = session.beginTransaction();
+        try {
+            departamento = new Departamento();
+           departamento=(Departamento)session.get(Empleado.class, Long.valueOf(id));
+            t.commit();
+        
+        } catch (Exception ex) {
+            t.rollback();
+        }
+        
+        finally{
+            session.close();      
+                }
         return departamento;
     }
 

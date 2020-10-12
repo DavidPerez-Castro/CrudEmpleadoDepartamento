@@ -14,6 +14,7 @@ import javax.persistence.Table;
 @Table(name = "empleados")
 public class Empleado {
 @Id
+//hacer que sea un consecutivo
 @Column
     private Long id;
 @Column

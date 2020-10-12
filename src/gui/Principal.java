@@ -5,10 +5,13 @@ import java.awt.Component;
 
 
 public class Principal extends javax.swing.JFrame {
-
+private DepartamentosGUI dep;
+private EmpleadosGUI emp;
   
     public Principal() {
         initComponents();
+        dep=DepartamentosGUI.getInstance();
+        emp=EmpleadosGUI.getInstance();
     }
 
     @SuppressWarnings("unchecked")
@@ -69,7 +72,7 @@ public class Principal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void departamentosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_departamentosActionPerformed
-        DepartamentosGUI dep=DepartamentosGUI.getInstance();
+       
         dep.setVisible(true);
         for(Component com:jPanel1.getComponents()){
             if(com.equals(dep))
@@ -83,7 +86,7 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void EmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmpleadoActionPerformed
-        EmpleadosGUI emp=EmpleadosGUI.getInstance();
+        
         emp.setVisible(true);
         for(Component com:jPanel1.getComponents()){
             if(com.equals(emp))

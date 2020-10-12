@@ -26,7 +26,7 @@ public class EmpleadosGUI extends javax.swing.JInternalFrame {
     private EmpDAOH dao;
     
     
-    public EmpleadosGUI() {
+    private EmpleadosGUI() {
         initComponents();
         dao = new EmpDAOH();
         
