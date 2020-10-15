@@ -39,21 +39,21 @@ public class EmpleadosGUI extends javax.swing.JInternalFrame {
         txtTelefono.setText("");
     }
 
-//    public String Recorrer() {
-//        String listaPersonas = "Datos: \n ";
-//        List<Empleado> lista = new ArrayList<Empleado>();
-//        lista = factory.mostrarAll();
-//        Iterator<Empleado> itr = lista.iterator();
-//        while (itr.hasNext()) {
-//            empleado = itr.next();
-//            listaPersonas += " ID:" + empleado.getId()
-//                    + " Nombre:" + empleado.getNombre()
-//                    + " Direccion:" + empleado.getDireccion()
-//                    + " Telefono:" + empleado.getTelefono()
-//                    + " \n ";
-//        }
-//        return listaPersonas;
-//    }
+public String Recorrer() {
+        String listaPersonas = "Datos: \n ";
+        List<Empleado> lista = new ArrayList<Empleado>();
+        lista = dao.mostrarAll();
+        Iterator<Empleado> itr = lista.iterator();
+        while (itr.hasNext()) {
+            empleado = itr.next();
+            listaPersonas += " ID:" + empleado.getId()
+                    + " Nombre:" + empleado.getNombre()
+                    + " Direccion: " + empleado.getDireccion()
+                    + "Telefono: " + empleado.getTelefono()
+                    + " \n ";
+        }
+        return listaPersonas;
+    }
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -218,7 +218,7 @@ public class EmpleadosGUI extends javax.swing.JInternalFrame {
         empleado.setNombre(txtNombre.getText());
         empleado.setDireccion(txtDireccion.getText());
         empleado.setTelefono(txtTelefono.getText());
-        dao.ingresar(empleado);
+        dao.actualizar(empleado);
         limpiar();
         
     }//GEN-LAST:event_btoActualizarActionPerformed
@@ -241,7 +241,7 @@ public class EmpleadosGUI extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btoEliminarActionPerformed
 
     private void btoMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btoMostrarActionPerformed
-        
+        mostrar.setText(Recorrer());
     }//GEN-LAST:event_btoMostrarActionPerformed
 
     private void btoBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btoBuscarActionPerformed

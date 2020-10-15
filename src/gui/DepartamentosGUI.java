@@ -10,13 +10,11 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-/**
- *
- * @author jahaziel1999
- */
+
 public class DepartamentosGUI extends javax.swing.JInternalFrame {
 
     private static DepartamentosGUI depgui=null;
+    
     public static DepartamentosGUI getInstance(){
         if(depgui==null)
             depgui=new DepartamentosGUI();
@@ -37,19 +35,19 @@ public class DepartamentosGUI extends javax.swing.JInternalFrame {
         txtNombre.setText("");
     }
 
-//    public String Recorrer() {
-//        String listaPersonas = "Datos: \n ";
-//        List<Departamento> lista = new ArrayList<Departamento>();
-//        lista = factory.mostrarAll();
-//        Iterator<Departamento> itr = lista.iterator();
-//        while (itr.hasNext()) {
-//            departamento = itr.next();
-//            listaPersonas += " ID:" + departamento.getId()
-//                    + " Nombre:" + departamento.getNombre()
-//                    + " \n ";
-//        }
-//        return listaPersonas;
-//    }
+    public String Recorrer() {
+        String listaPersonas = "Datos: \n ";
+        List<Departamento> lista = new ArrayList<Departamento>();
+        lista = dao.mostrarAll();
+        Iterator<Departamento> itr = lista.iterator();
+        while (itr.hasNext()) {
+            departamento = itr.next();
+            listaPersonas += " ID:" + departamento.getId()
+                    + " Nombre:" + departamento.getNombre()
+                    + " \n ";
+        }
+        return listaPersonas;
+    }
    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -214,7 +212,8 @@ public class DepartamentosGUI extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btoEliminarActionPerformed
 
     private void btoMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btoMostrarActionPerformed
-        
+        //mostrar.setText(Recorrer());
+        mostrar.setText(Recorrer());
     }//GEN-LAST:event_btoMostrarActionPerformed
 
     private void btoBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btoBuscarActionPerformed

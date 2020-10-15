@@ -4,9 +4,9 @@ package Hibernate;
 import Crud.Departamento;
 import Crud.Empleado;
 import Crud.IDAO;
-import java.util.ArrayList;
-import java.util.Iterator;
+import java.sql.ResultSet;
 import java.util.List;
+import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -81,7 +81,7 @@ public class DepDAOH implements IDAO <Departamento>{
         Transaction t = session.beginTransaction();
         try {
             departamento = new Departamento();
-           departamento=(Departamento)session.get(Empleado.class, Long.valueOf(id));
+            departamento=(Departamento)session.get(Departamento.class, Long.valueOf(id));
             t.commit();
         
         } catch (Exception ex) {
@@ -96,8 +96,14 @@ public class DepDAOH implements IDAO <Departamento>{
 
     @Override
     public List mostrarAll() {
-     
-      return null;
+        
+         session = HibernateUtil.getSessionFactory().openSession();
+	Criteria crit = session.createCriteria(Departamento.class);	
+         List<Departamento> departamentos = crit.list();
+	crit.setMaxResults(100);
+         session.close();
+        return departamentos;
+
     }
    
     }

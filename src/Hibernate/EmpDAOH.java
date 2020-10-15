@@ -5,6 +5,7 @@ package Hibernate;
 import Crud.Empleado;
 import Crud.IDAO;
 import java.util.List;
+import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -80,7 +81,7 @@ public class EmpDAOH implements IDAO <Empleado> {
         Transaction t = session.beginTransaction();
         try {
             empleado = new Empleado();
-           empleado=(Empleado)session.get(Empleado.class, Long.valueOf(id));
+            empleado=(Empleado)session.get(Empleado.class, Long.valueOf(id));
             t.commit();
         
         } catch (Exception ex) {
@@ -95,7 +96,12 @@ public class EmpDAOH implements IDAO <Empleado> {
     }
     @Override
     public List mostrarAll() {
-        return null;
+        session = HibernateUtil.getSessionFactory().openSession();
+	Criteria crit = session.createCriteria(Empleado.class);	
+         List<Empleado> empleados = crit.list();
+	crit.setMaxResults(100);
+         session.close();
+        return empleados;
     }
     
 }
